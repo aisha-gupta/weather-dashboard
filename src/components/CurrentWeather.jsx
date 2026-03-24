@@ -13,19 +13,26 @@ function CurrentWeather() {
   }, []);
 
   useEffect(() => {
-    fetchWeather();
+    const fetchWeather = async () => {
+      setLoading(true);
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,uv_index,precipitation&hourly=temperature_2m,relative_humidity_2m&daily=sunrise,sunset&timezone=auto`;
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      setWeather(data);
+      setLoading(false);
+    };
+
+    if (location.lat && location.lon) {
+      fetchWeather();
+    }
   }, [location]);
 
-  const fetchWeather = async () => {
-    setLoading(true);
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,uv_index,precipitation&hourly=temperature_2m,relative_humidity_2m&daily=sunrise,sunset&timezone=auto`;
-    const res = await fetch(url);
-    const data = await res.json();
-    setWeather(data);
-    setLoading(false);
-  };
-
-  if (loading) return <div className="loading">⏳ Loading weather...</div>;
+  // ✅ SAFE CHECK (fixes crash)
+  if (loading || !weather || !weather.current) {
+    return <div className="loading">⏳ Loading weather...</div>;
+  }
 
   const current = weather.current;
   const hourly = weather.hourly;
@@ -60,7 +67,7 @@ function CurrentWeather() {
         </div>
       </div>
 
-      <h3 style={{marginTop: '24px', marginBottom: '12px'}}>⏰ Hourly Forecast</h3>
+      <h3 style={{ marginTop: '24px', marginBottom: '12px' }}>⏰ Hourly Forecast</h3>
       <div className="hourly">
         {hourly.time.slice(0, 12).map((time, i) => (
           <div className="hour-card" key={i}>
