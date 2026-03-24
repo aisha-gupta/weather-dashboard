@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import CurrentWeather from './components/CurrentWeather';
+import HistoricalData from './components/HistoricalData';
 import './App.css';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('current');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="app">
+      <h1>🌤️ Weather Dashboard</h1>
+      <div className="tabs">
+        <button
+          className={activeTab === 'current' ? 'active' : ''}
+          onClick={() => setActiveTab('current')}
         >
-          Learn React
-        </a>
-      </header>
+          Current Weather
+        </button>
+        <button
+          className={activeTab === 'historical' ? 'active' : ''}
+          onClick={() => setActiveTab('historical')}
+        >
+          Historical Data
+        </button>
+      </div>
+      <div className="content">
+        {activeTab === 'current' ? <CurrentWeather /> : <HistoricalData />}
+      </div>
     </div>
   );
 }
