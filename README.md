@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# 🌤️ Weather Dashboard (ReactJS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Live Demo
 
-## Available Scripts
+👉 https://your-vercel-link.vercel.app
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is a Weather Dashboard built using ReactJS that provides real-time and historical weather data based on the user's location.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application uses the Open-Meteo API to fetch weather data and displays it in a clean, responsive UI.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
 
-### `npm run build`
+### 🌍 Current Weather
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Auto-detects user location using Geolocation API
+* Displays:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  * Temperature
+  * Humidity
+  * Wind Speed
+  * UV Index
+  * Precipitation
+  * Sunrise & Sunset
+* Hourly forecast (next 12 hours)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📊 Historical Data
 
-### `npm run eject`
+* Select custom date range
+* View trends for:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  * Temperature (min & max)
+  * Precipitation
+  * Wind speed
+* Interactive charts using Recharts
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* ReactJS (Functional Components + Hooks)
+* JavaScript (ES6+)
+* Recharts (Data visualization)
+* Open-Meteo API
+* CSS (Responsive design)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ⚙️ How It Works
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. The app fetches the user's location using the browser Geolocation API.
+2. Based on coordinates, it calls the Open-Meteo API.
+3. Weather data is stored in state using React hooks.
+4. UI updates automatically based on fetched data.
+5. Historical data is visualized using charts.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📦 Installation
 
-### Analyzing the Bundle Size
+```bash
+git clone https://github.com/your-username/weather-dashboard.git
+cd weather-dashboard
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🚀 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The project is deployed using Vercel for fast performance and HTTPS support.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🎯 Future Improvements
 
-### Deployment
+* Temperature unit toggle (°C ↔ °F)
+* Air quality data (AQI)
+* UI animations
+* Improved error handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
